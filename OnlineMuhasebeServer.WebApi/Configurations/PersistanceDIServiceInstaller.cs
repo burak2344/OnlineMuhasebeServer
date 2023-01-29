@@ -28,6 +28,7 @@ namespace OnlineMuhasebeServer.WebApi.Configurations
 
 			#region AppDbContext
 			services.AddScoped<ICompanyService, CompanyService>();
+			services.AddScoped<IRoleService, RoleService>();
 			//AppServiceDISpot
 			#endregion
 

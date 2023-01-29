@@ -12,6 +12,8 @@
 
   <ItemGroup>
     <Folder Include="Features\AppFeatures\CompanyFeatures\Queries\" />
+    <Folder Include="Features\AppFeatures\RoleFeatures\Commands\CreateStaticRoles\" />
+    <Folder Include="Features\AppFeatures\RoleFeatures\Commands\DeleteRole\" />
   </ItemGroup>
 
   <ItemGroup>
