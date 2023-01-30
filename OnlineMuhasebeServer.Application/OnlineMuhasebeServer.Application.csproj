@@ -7,13 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="11.4.0" />
+    <PackageReference Include="FluentValidation.DependencyInjectionExtensions" Version="11.4.0" />
     <PackageReference Include="MediatR" Version="11.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <Folder Include="Features\AppFeatures\CompanyFeatures\Queries\" />
     <Folder Include="Features\AppFeatures\RoleFeatures\Commands\CreateStaticRoles\" />
-    <Folder Include="Features\AppFeatures\RoleFeatures\Commands\DeleteRole\" />
   </ItemGroup>
 
   <ItemGroup>
