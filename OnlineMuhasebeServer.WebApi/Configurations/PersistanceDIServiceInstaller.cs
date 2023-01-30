@@ -7,10 +7,11 @@ using OnlineMuhasebeServer.Persistance.Repositories.CompanyDbContext.UCAFReposit
 using OnlineMuhasebeServer.Persistance.Services.AppServices;
 using OnlineMuhasebeServer.Persistance.Services.CompanyServices;
 using OnlineMuhasebeServer.Persistance;
+using OnlineMuhasebeServer.Persistance.UnitOfWorks;
 
 namespace OnlineMuhasebeServer.WebApi.Configurations
 {
-	public class PersistanceDIServiceInstaller : IServiceInstaller
+    public class PersistanceDIServiceInstaller : IServiceInstaller
 	{
 		public void Install(IServiceCollection services, IConfiguration configuration)
 		{
