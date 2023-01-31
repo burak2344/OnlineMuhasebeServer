@@ -6,6 +6,7 @@ using OnlineMuhasebeServer.Domain.CompanyEntities;
 using OnlineMuhasebeServer.Domain.Repositories.CompanyDbContext.UCAFRepositories;
 using OnlineMuhasebeServer.Domain.UnitOfWorks;
 using OnlineMuhasebeServer.Persistance.Context;
+using OnlineMuhasebeServer.Persistance.Repositories;
 
 namespace OnlineMuhasebeServer.Persistance.Services.CompanyServices
 {
@@ -13,16 +14,18 @@ namespace OnlineMuhasebeServer.Persistance.Services.CompanyServices
 	{
 		private readonly IUCAFCommandRepository _commandRepository;
 		private readonly IContextService _contextService;
+		private readonly IUCAFQueryRepository _queryRepository;
 		private readonly IUnitOfWork _unitOfWork;
 		private readonly IMapper _mapper;
 		private CompanyDbContext _context;
 
-		public UCAFService(IUCAFCommandRepository commandRepository, IContextService contextService, IUnitOfWork unitOfWork, IMapper mapper)
+		public UCAFService(IUCAFCommandRepository commandRepository, IContextService contextService, IUnitOfWork unitOfWork, IMapper mapper, IUCAFQueryRepository queryRepository)
 		{
 			_commandRepository = commandRepository;
 			_contextService = contextService;
 			_unitOfWork = unitOfWork;
 			_mapper = mapper;
+			_queryRepository = queryRepository;
 		}
 
 		public async Task CreateUcafAsync(CreateUCAFCommand request, CancellationToken cancellationToken)
@@ -37,6 +40,9 @@ namespace OnlineMuhasebeServer.Persistance.Services.CompanyServices
 			await _unitOfWork.SaveChangesAsync(cancellationToken);
 		}
 
-		
+		public async Task<UniformChartOfAccount> GetByCode(string code)
+		{
+			return await _queryRepository.GetFirstByExpiression(p => p.Code == code);
+		}
 	}
 }
