@@ -15,7 +15,6 @@
   <ItemGroup>
     <Folder Include="Features\AppFeatures\AuthFeatures\Queries\" />
     <Folder Include="Features\AppFeatures\CompanyFeatures\Queries\" />
-    <Folder Include="Features\AppFeatures\RoleFeatures\Commands\CreateStaticRoles\" />
   </ItemGroup>
 
   <ItemGroup>
