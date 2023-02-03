@@ -24,9 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\AppFeatures\MainRoleAndRoleRLFeatures\" />
-    <Folder Include="Features\AppFeatures\MainRoleAndUserRLFeatures\" />
-    <Folder Include="Features\AppFeatures\MainRoleFeatures\" />
     <Folder Include="Features\AppFeatures\UserAndCompanyRLFeatures\" />
   </ItemGroup>
 

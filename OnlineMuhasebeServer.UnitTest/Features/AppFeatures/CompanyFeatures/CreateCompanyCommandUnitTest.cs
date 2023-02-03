@@ -26,9 +26,9 @@ namespace OnlineMuhasebeServer.UnitTest.Features.AppFeatures.CompanyFeatures
 		public async Task CreateCompanyCommandResponseShouldNotBeNull()
 		{
 			var command = new CreateCompanyCommand(
-				Name: "Burak Ltd Şti",
+				Name: "Yunkul Ltd Şti",
 			   ServerName: "localhost",
-			   DatabaseName: "BurakMuhasebeDb",
+			   DatabaseName: "YunkulMuhasebeDb",
 			   UserId: "",
 			   Password: "");
 

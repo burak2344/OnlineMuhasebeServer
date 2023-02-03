@@ -17,5 +17,12 @@ namespace OnlineMuhasebeServer.Presentation.Controller
 			LoginCommandResponse response = await _mediator.Send(request);
 			return Ok(response);
 		}
+
+		//[HttpPost("[action]")]
+		//public async Task<IActionResult> GetRolesByUserIdAndCompanyId(GetRolesByUserIdAndCompanyIdQuery request)
+		//{
+		//	GetRolesByUserIdAndCompanyIdQueryResponse response = await _mediator.Send(request);
+		//	return Ok(response);
+		//}
 	}
 }
