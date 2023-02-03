@@ -21,9 +21,4 @@
     <ProjectReference Include="..\OnlineMuhasebeServer.Domain\OnlineMuhasebeServer.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Repositories\GenericRepositories\AppDbContext\" />
-    <Folder Include="Repositories\GenericRepositories\CompanyDbContext\" />
-  </ItemGroup>
-
 </Project>

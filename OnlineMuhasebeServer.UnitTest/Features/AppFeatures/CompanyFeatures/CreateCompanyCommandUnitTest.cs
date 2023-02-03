@@ -18,7 +18,7 @@ namespace OnlineMuhasebeServer.UnitTest.Features.AppFeatures.CompanyFeatures
 		[Fact]
 		public async Task CompanyShouldBeNull()
 		{
-			Company company = (await _companyService.Object.GetCompanyByName("Burak Yunkul"))!;
+			Company company = (await _companyService.Object.GetCompanyByName("Burak Ltd Şti", default))!;
 			company.ShouldBeNull();
 		}
 
@@ -26,9 +26,9 @@ namespace OnlineMuhasebeServer.UnitTest.Features.AppFeatures.CompanyFeatures
 		public async Task CreateCompanyCommandResponseShouldNotBeNull()
 		{
 			var command = new CreateCompanyCommand(
-			   Name: "Burak Yunkul",
+				Name: "Burak Ltd Şti",
 			   ServerName: "localhost",
-			   DatabaseName: "BurakYunkulDb",
+			   DatabaseName: "BurakMuhasebeDb",
 			   UserId: "",
 			   Password: "");
 

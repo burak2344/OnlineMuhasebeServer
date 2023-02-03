@@ -1,5 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using OnlineMuhasebeServer.Domain.Abstractions;
+﻿using OnlineMuhasebeServer.Domain.Abstractions;
 
 namespace OnlineMuhasebeServer.Domain.Repositories.GenericRepositories
 {

@@ -8,6 +8,8 @@ using OnlineMuhasebeServer.Persistance.Services.AppServices;
 using OnlineMuhasebeServer.Persistance.Services.CompanyServices;
 using OnlineMuhasebeServer.Persistance;
 using OnlineMuhasebeServer.Persistance.UnitOfWorks;
+using OnlineMuhasebeServer.Domain.Repositories.AppDbContext.CompanyRepositories;
+using OnlineMuhasebeServer.Persistance.Repositories.AppDbContext.CompanyRepositories;
 
 namespace OnlineMuhasebeServer.WebApi.Configurations
 {
@@ -16,7 +18,8 @@ namespace OnlineMuhasebeServer.WebApi.Configurations
 		public void Install(IServiceCollection services, IConfiguration configuration)
 		{
 			#region Context UnitOfWork
-			services.AddScoped<IUnitOfWork, UnitOfWork>();
+			services.AddScoped<ICompanyDbUnitOfWork, CompanyDbUnitOfWork>();
+			services.AddScoped<IAppUnitOfWork, AppUnitOfWork>();
 			services.AddScoped<IContextService, ContextService>();
 			#endregion
 
@@ -24,30 +27,32 @@ namespace OnlineMuhasebeServer.WebApi.Configurations
 			#region Services
 			#region CompanyDbContext
 			services.AddScoped<IUCAFService, UCAFService>();
-			//CompanyServiceDISpot
-			#endregion
+				//CompanyServiceDISpot
+				#endregion
 
-			#region AppDbContext
-			services.AddScoped<ICompanyService, CompanyService>();
-			services.AddScoped<IRoleService, RoleService>();
-			//AppServiceDISpot
-			#endregion
+				#region AppDbContext
+				services.AddScoped<ICompanyService, CompanyService>();
+				services.AddScoped<IRoleService, RoleService>();
+				//AppServiceDISpot
+				#endregion
 
 			#endregion
 
 
 			#region Repositories
-			#region CompanyDbContext
 
-			services.AddScoped<IUCAFCommandRepository, UCAFCommandRepository>();
-			services.AddScoped<IUCAFQueryRepository, UCAFQueryRepository>();
-			//CompanyRepositoryDISpot
+					#region CompanyDbContext
+					services.AddScoped<IUCAFCommandRepository, UCAFCommandRepository>();
+					services.AddScoped<IUCAFQueryRepository, UCAFQueryRepository>();
+				    //CompanyRepositoryDISpot
+				    #endregion
 
-			#region AppDbContext
-			//AppRepositoryDISpot
-			#endregion
+				    #region AppDbContext
+				    services.AddScoped<ICompanyCommandRepository, CompanyCommandRepository>();
+					services.AddScoped<ICompanyQueryRepository, CompanyQueryRepository>();
+					//AppRepositoryDISpot
+					#endregion
 
-			#endregion
 			#endregion
 		}
 	}

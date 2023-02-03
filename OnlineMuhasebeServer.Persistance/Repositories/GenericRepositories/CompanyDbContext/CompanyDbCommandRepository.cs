@@ -1,18 +1,16 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using OnlineMuhasebeServer.Domain.Abstractions;
-using OnlineMuhasebeServer.Domain.Repositories.GenericRepositories;
-using OnlineMuhasebeServer.Persistance.Context;
+using OnlineMuhasebeServer.Domain.Repositories.GenericRepositories.CompanyDbContext;
 
-namespace OnlineMuhasebeServer.Persistance.Repositories
+namespace OnlineMuhasebeServer.Persistance.Repositories.GenericRepositories.CompanyDbContext
 {
-	public class CommandRepository<T> : ICommandGenericRepository<T> 
-		where T : Entity
+	public class CompanyDbCommandRepository<T> : ICompanyDbCommandRepository<T>
+	   where T : Entity
 	{
-		private static readonly Func<Context.CompanyDbContext, string, Task<T>>
-			GetByIdCompiled =
+		private static readonly Func<Context.CompanyDbContext, string, Task<T>> GetByIdCompiled =
 			EF.CompileAsyncQuery((Context.CompanyDbContext context, string id) =>
-			context.Set<T>().FirstOrDefault(p=> p.Id == id));
-			
+			context.Set<T>().FirstOrDefault(p => p.Id == id));
+
 		private Context.CompanyDbContext _context;
 
 		public DbSet<T> Entity { get; set; }
@@ -22,14 +20,14 @@ namespace OnlineMuhasebeServer.Persistance.Repositories
 			_context = (Context.CompanyDbContext)context;
 			Entity = _context.Set<T>();
 		}
-		public async Task AddAsync(T entity,CancellationToken cancellationToken)
+		public async Task AddAsync(T entity, CancellationToken cancellationToken)
 		{
-			await Entity.AddAsync(entity,cancellationToken);
+			await Entity.AddAsync(entity, cancellationToken);
 		}
 
-		public async Task AddRangeAsync(IEnumerable<T> entities,CancellationToken cancellationToken)
+		public async Task AddRangeAsync(IEnumerable<T> entities, CancellationToken cancellationToken)
 		{
-			await Entity.AddRangeAsync(entities,cancellationToken);
+			await Entity.AddRangeAsync(entities, cancellationToken);
 		}
 
 		public void Remove(T entity)
