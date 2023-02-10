@@ -3,6 +3,7 @@ using Microsoft.Extensions.Options;
 using Microsoft.IdentityModel.Tokens;
 using OnlineMuhasebeServer.Application.Abstractions;
 using OnlineMuhasebeServer.Domain.AppEntities.Identity;
+using OnlineMuhasebeServer.Domain.Dtos;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Security.Cryptography;
@@ -21,7 +22,7 @@ namespace OnlineMuhasebeServer.Infrasturcture.Authentication
 			_userManager = userManager;
 		}
 
-		public async Task<string> CreateTokenAsycn(AppUser user)
+		public async Task<TokenRefreshTokenDto> CreateTokenAsync(AppUser user)
 		{
 			var claims = new Claim[]
 			{
@@ -41,14 +42,16 @@ namespace OnlineMuhasebeServer.Infrasturcture.Authentication
 				expires: expires,
 				signingCredentials: new SigningCredentials(new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_jwtOptions.SecretKey)), SecurityAlgorithms.HmacSha256));
 
-			string token = new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
+			string token = new JwtSecurityTokenHandler()
+				 .WriteToken(jwtSecurityToken);
+
 
 			string refreshToken = Convert.ToBase64String(RandomNumberGenerator.GetBytes(32));
 			user.RefreshToken = refreshToken;
 			user.RefreshTokenExpires = expires.AddDays(1);
 			await _userManager.UpdateAsync(user);
 
-			return token;
+			return new(token, refreshToken, user.RefreshTokenExpires);
 		}
 	}
 }

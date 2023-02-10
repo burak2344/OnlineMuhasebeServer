@@ -24,10 +24,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\AppFeatures\UserAndCompanyRLFeatures\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\OnlineMuhasebeServer.Application\OnlineMuhasebeServer.Application.csproj" />
   </ItemGroup>
 
