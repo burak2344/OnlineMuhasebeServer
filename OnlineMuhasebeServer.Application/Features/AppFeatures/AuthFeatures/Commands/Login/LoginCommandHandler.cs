@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using OnlineMuhasebeServer.Application.Abstractions;
 using OnlineMuhasebeServer.Application.Messaging;
 using OnlineMuhasebeServer.Application.Services.AppServices;

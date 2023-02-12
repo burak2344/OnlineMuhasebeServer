@@ -13,10 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Features\AppFeatures\AuthFeatures\Queries\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\OnlineMuhasebeServer.Domain\OnlineMuhasebeServer.Domain.csproj" />
   </ItemGroup>
 

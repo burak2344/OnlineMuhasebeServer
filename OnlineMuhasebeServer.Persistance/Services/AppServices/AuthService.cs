@@ -1,13 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
-using OnlineMuhasebeServer.Application.Services.AppServices;
-using OnlineMuhasebeServer.Domain.AppEntities.Identity;
-using OnlineMuhasebeServer.Domain.AppEntities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using OnlineMuhasebeServer.Application.Services.AppServices;
+using OnlineMuhasebeServer.Domain.AppEntities;
+using OnlineMuhasebeServer.Domain.AppEntities.Identity;
 
 namespace OnlineMuhasebeServer.Persistance.Services.AppServices
 {
